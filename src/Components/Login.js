@@ -1,16 +1,13 @@
 import React from "react";
-import AuthContext from "../auth-context";
 
-class Login extends React.Component {
-  static contextType = AuthContext;
+const Login = props => {
+  console.log(props);
+  return (
+    <div>
+      <button onClick={props.login}>login</button>
+      <button onClick={props.logout}>logout</button>
+    </div>
+  );
+};
 
-  render() {
-    return (
-      <button onClick={this.context.toggleAuth}>
-        {this.context.isAuth ? "logout" : "login"}
-      </button>
-    );
-  }
-}
-
-export default Login;
+export default React.memo(Login);
